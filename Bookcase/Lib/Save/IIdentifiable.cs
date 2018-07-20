@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Bookcase.Lib.Save
 {
-    public class Book : BookcaseObject
+    public interface IIdentifiable
     {
-
+        Identifier Identifier { get; }
     }
 }
