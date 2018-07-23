@@ -3,52 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StardewValley;
 
 namespace Bookcase.Lib.Save
 {
     public class Registry
     {
-        public List<BookcaseTool> Tools;//Specific
-        public List<BookcaseObject> Objects;//General
-        public List<BookcaseItem> Items;//Literally Anything
-
         private int currentIDIndex = 10000;
         private int GetNextID()
         {
             return currentIDIndex++;
         }
-
-        public bool Add(IIdentifiable i)
+        public List<Item> Items;
+        /// <summary>
+        /// Adds an Item
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="item"></param>
+        public bool AddItem<T>() where T : StardewValley.Item, new()
         {
-            if (i is BookcaseTool)
+            if (typeof(T) is IIdentifiable)
             {
-                Tools.Add(i as BookcaseTool);
-                if (i.Identifier is ObjectIdentifier)
-                    ((ObjectIdentifier)i).GameID = GetNextID();
-                i.Identifier.Registered = false;
+                T t = new T();
+                IIdentifiable i = t as IIdentifiable;
+                if(i.IsGameIDInteger)
+                    i.GameID = GetNextID().ToString();
+                Items.Add(t);
                 return true;
             }
-            if (i is BookcaseObject)
-            {
-                Objects.Add(i as BookcaseObject);
-                if (i.Identifier is ObjectIdentifier)
-                    ((ObjectIdentifier)i).GameID = GetNextID();
-                i.Identifier.Registered = false;
-                return true;
-            }
-            else if (i is BookcaseItem)
-            {
-                Items.Add(i as BookcaseItem);
-                if (i.Identifier is ObjectIdentifier)
-                    ((ObjectIdentifier)i).GameID = GetNextID();
-                i.Identifier.Registered = false;
-                return true;
-            }
-            return false;
-        }
-        public void HookOntoFactories()
-        {
-            //Do factory hooks
+            else
+                return false;//complain in future
         }
     }
 }
