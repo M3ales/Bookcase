@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,6 +58,7 @@
     <Compile Include="Events\Tools\FishingRod\FishCaughtInfoEvent.cs" />
     <Compile Include="Lib\Log.cs" />
     <Compile Include="Lib\StardewModHooksWrapper.cs" />
+    <Compile Include="Objects\SpriteStitcher.cs" />
     <Compile Include="Patches\StardewValley\Tools\FishingRod\FishCaughtInfoPatch.cs" />
     <Compile Include="Patches\IGamePatch.cs" />
     <Compile Include="Patches\PatchManager.cs" />

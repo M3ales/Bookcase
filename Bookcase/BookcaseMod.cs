@@ -2,6 +2,9 @@
 using Bookcase.Events;
 using Bookcase.Patches;
 using System;
+using Bookcase.Objects;
+using System.Drawing;
+using System.Collections.Generic;
 
 namespace Bookcase {
 
@@ -11,7 +14,7 @@ namespace Bookcase {
         internal static IReflectionHelper reflection;
         internal static Log logger;
         internal static Random random;
-
+        private Bitmap testSprite = new Bitmap("H:\\test.jpg");
         public override void Entry(IModHelper helper) {
 
             modHelper = helper;
@@ -21,6 +24,10 @@ namespace Bookcase {
 
             StardewModHooksWrapper.CreateWrapper(this);
             PatchManager patchManager = new PatchManager();
+            SpriteStitcher s = new SpriteStitcher("Maps\\springobjects", new List<Bitmap>() { testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite }, lastRowSpriteIndex: 12);
+            s.PreLoad();
+            s = new SpriteStitcher("TileSheets\\tools", new List<Bitmap>() { testSprite, testSprite, testSprite, testSprite }, tileSizeX:16, tileSizeY:32, lastRowSpriteIndex:0);
+            s.PreLoad();
         }
     }
 }
