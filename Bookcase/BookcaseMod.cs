@@ -1,5 +1,5 @@
 ﻿using StardewModdingAPI;
-using Bookcase.Events;
+using Bookcase.Lib;
 using Bookcase.Patches;
 using System;
 using Bookcase.Objects;
@@ -22,7 +22,7 @@ namespace Bookcase {
             logger = new Log(this);
             random = new Random();
 
-            StardewModHooksWrapper.CreateWrapper(this);
+            StardewModHooksWrapper.CreateWrapper();
             PatchManager patchManager = new PatchManager();
             SpriteStitcher s = new SpriteStitcher("Maps\\springobjects", new List<Bitmap>() { testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite, testSprite }, lastRowSpriteIndex: 12);
             s.PreLoad();
