@@ -65,6 +65,13 @@
     <Compile Include="Lib\Log.cs" />
     <Compile Include="Lib\MultDictionary.cs" />
     <Compile Include="Lib\StardewModHooksWrapper.cs" />
+    <Compile Include="Lib\Identifier.cs" />
+    <Compile Include="Lib\IIdentifiable.cs" />
+    <Compile Include="Lib\Registry.cs" />
+    <Compile Include="Objects\ObjectInformationAssetEditor.cs" />
+    <Compile Include="Objects\ObjectIndexRegistry.cs" />
+    <Compile Include="Objects\ObjectReservedRegistry.cs" />
+    <Compile Include="Objects\ObjectTypeRegistry.cs" />
     <Compile Include="Patches\StardewValley\NPC\NPCReceiveGiftPatch.cs" />
     <Compile Include="Patches\StardewValley\Farmer\PatchDayUpdate.cs" />
     <Compile Include="Patches\StardewValley\Menus\IClickableMenu\PostBundleSpecificPageSetupPatch.cs" />
